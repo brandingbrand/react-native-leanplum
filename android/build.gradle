@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.leanplum.com/" }
+    maven { url "$rootDir/node_modules/react-native/android" }
+    maven { url 'https://jitpack.io' }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.1'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+    lintOptions {
+       warning 'InvalidPackage'
+    }
+}
+
+dependencies {
+    compile "com.facebook.react:react-native:+"
+    compile 'com.leanplum:Leanplum:2.2.3'
+}

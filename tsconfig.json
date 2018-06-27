@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "inlineSourceMap": true,
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "declarationDir": "./typings",
+    "jsx": "react-native"
+  },
+  "include": ["/**/*"],
+  "exclude": ["node_modules", "typings"]
+}
