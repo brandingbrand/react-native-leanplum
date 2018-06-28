@@ -23,5 +23,5 @@
     "prepublishOnly": "./node_modules/.bin/tsc"
   },
   "types": "./typings/index.d.ts",
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
