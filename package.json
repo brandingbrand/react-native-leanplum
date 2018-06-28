@@ -5,8 +5,13 @@
   },
   "description": "React Native bridge for Leanplum iOS and Android SDKs.",
   "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "@commitlint/config-lerna-scopes": "^7.0.0",
+    "@commitlint/travis-cli": "^7.0.0",
     "@types/react-native": "^0.46.7",
-    "typescript": "^2.4.2"
+    "typescript": "^2.4.2",
+    "semantic-release": "^15.6.0"
   },
   "homepage": "https://github.com/brandingbrand/react-native-leanplum#readme",
   "license": "MIT",
@@ -20,7 +25,8 @@
     "url": "git+https://github.com/brandingbrand/react-native-leanplum.git"
   },
   "scripts": {
-    "prepublishOnly": "./node_modules/.bin/tsc"
+    "prepublishOnly": "./node_modules/.bin/tsc",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "types": "./typings/index.d.ts",
   "version": "0.0.2"
