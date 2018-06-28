@@ -8,6 +8,7 @@ jobs:
     - stage: test
       script: commitlint-travis || travis_terminate 1
     - stage: release
+      if: branch = master AND head_branch IS blank
       deploy:
         provider: script
         skip_cleanup: true
