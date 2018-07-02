@@ -9,9 +9,10 @@
     "@commitlint/config-conventional": "^7.0.1",
     "@commitlint/config-lerna-scopes": "^7.0.0",
     "@commitlint/travis-cli": "^7.0.0",
+    "@semantic-release/changelog": "^2.1.1",
     "@types/react-native": "^0.46.7",
-    "typescript": "^2.4.2",
-    "semantic-release": "^15.6.0"
+    "semantic-release": "^15.6.0",
+    "typescript": "^2.4.2"
   },
   "homepage": "https://github.com/brandingbrand/react-native-leanplum#readme",
   "license": "MIT",
@@ -41,7 +42,10 @@
       "@semantic-release/npm",
       {
         "path": "@semantic-release/git",
-        "assets": ["package.json", "CHANGELOG.md"],
+        "assets": [
+          "package.json",
+          "CHANGELOG.md"
+        ],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ]
