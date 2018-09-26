@@ -4,6 +4,9 @@
     "url": "https://github.com/brandingbrand/react-native-leanplum/issues"
   },
   "description": "React Native bridge for Leanplum iOS and Android SDKs.",
+  "dependencies": {
+    "@brandingbrand/fsfoundation": "^0.1.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
     "@commitlint/config-conventional": "^7.1.2",
@@ -12,7 +15,7 @@
     "@semantic-release/git": "^6.0.1",
     "@types/react-native": "^0.46.7",
     "semantic-release": "^15.6.0",
-    "typescript": "^2.4.2"
+    "typescript": "^3.0.1"
   },
   "homepage": "https://github.com/brandingbrand/react-native-leanplum#readme",
   "license": "MIT",

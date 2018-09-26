@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A8DDBB6B1F472A0E00AD4299 /* RNLeanplum.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBB6A1F472A0E00AD4299 /* RNLeanplum.m */; };
+		F94B7DF421652665001A2869 /* RNLPInboxMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F94B7DF021652664001A2869 /* RNLPInboxMessage.m */; };
+		F94B7DF521652665001A2869 /* RNLPInbox.m in Sources */ = {isa = PBXBuildFile; fileRef = F94B7DF321652664001A2869 /* RNLPInbox.m */; };
+		F94B7DF82165266A001A2869 /* LPInboxMessage+RNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F94B7DF62165266A001A2869 /* LPInboxMessage+RNAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +29,12 @@
 		A8DDBB661F472A0E00AD4299 /* libRNLeanplum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNLeanplum.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DDBB691F472A0E00AD4299 /* RNLeanplum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNLeanplum.h; sourceTree = "<group>"; };
 		A8DDBB6A1F472A0E00AD4299 /* RNLeanplum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNLeanplum.m; sourceTree = "<group>"; };
+		F94B7DF021652664001A2869 /* RNLPInboxMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLPInboxMessage.m; sourceTree = "<group>"; };
+		F94B7DF121652664001A2869 /* RNLPInboxMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLPInboxMessage.h; sourceTree = "<group>"; };
+		F94B7DF221652664001A2869 /* RNLPInbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLPInbox.h; sourceTree = "<group>"; };
+		F94B7DF321652664001A2869 /* RNLPInbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLPInbox.m; sourceTree = "<group>"; };
+		F94B7DF62165266A001A2869 /* LPInboxMessage+RNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LPInboxMessage+RNAdditions.m"; sourceTree = "<group>"; };
+		F94B7DF72165266A001A2869 /* LPInboxMessage+RNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LPInboxMessage+RNAdditions.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,8 +51,14 @@
 		A8DDBB5D1F472A0E00AD4299 = {
 			isa = PBXGroup;
 			children = (
+				F94B7DF72165266A001A2869 /* LPInboxMessage+RNAdditions.h */,
+				F94B7DF62165266A001A2869 /* LPInboxMessage+RNAdditions.m */,
 				A8DDBB691F472A0E00AD4299 /* RNLeanplum.h */,
 				A8DDBB6A1F472A0E00AD4299 /* RNLeanplum.m */,
+				F94B7DF221652664001A2869 /* RNLPInbox.h */,
+				F94B7DF321652664001A2869 /* RNLPInbox.m */,
+				F94B7DF121652664001A2869 /* RNLPInboxMessage.h */,
+				F94B7DF021652664001A2869 /* RNLPInboxMessage.m */,
 				A8DDBB671F472A0E00AD4299 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,7 +129,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F94B7DF421652665001A2869 /* RNLPInboxMessage.m in Sources */,
 				A8DDBB6B1F472A0E00AD4299 /* RNLeanplum.m in Sources */,
+				F94B7DF82165266A001A2869 /* LPInboxMessage+RNAdditions.m in Sources */,
+				F94B7DF521652665001A2869 /* RNLPInbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,11 +12,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class RNLeanplumPackage implements ReactPackage {
+    private Application application;
 
-    private Application _application;
-
-    public RNLeanplumPackage(Application application) {
-        _application = application;
+    public RNLeanplumPackage(Application app) {
+        application = app;
     }
 
     @Override
@@ -25,11 +24,12 @@ public class RNLeanplumPackage implements ReactPackage {
     }
 
     @Override
-    public List<NativeModule> createNativeModules(
-            ReactApplicationContext reactContext) {
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
 
-        modules.add(new RNLeanplum(reactContext, _application));
+        modules.add(new RNLeanplum(reactContext, application));
+        modules.add(new RNLPInbox(reactContext, application));
+        modules.add(new RNLPInboxMessage(reactContext, application));
 
         return modules;
     }

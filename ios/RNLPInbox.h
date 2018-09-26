@@ -1,9 +1,9 @@
 //
-//  RNLeanplum.h
+//  RNLPInbox.h
 //  RNLeanplum
 //
-//  Created by Bassel Dagher on 8/18/17.
-//  Copyright © 2017-2018 Branding Brand. All rights reserved.
+//  Created by Sky Eckstrom on 9/26/18.
+//  Copyright © 2018 Branding Brand. All rights reserved.
 //
 
 #if __has_include(<React/RCTBridgeModule.h>)
@@ -14,6 +14,6 @@
 #import "React/RCTBridgeModule.h"
 #endif
 
-@interface RNLeanplum : NSObject <RCTBridgeModule>
+@interface RNLPInbox : NSObject <RCTBridgeModule>
 
 @end
