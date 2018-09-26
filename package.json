@@ -30,7 +30,7 @@
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "types": "./typings/index.d.ts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",

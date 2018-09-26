@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/brandingbrand/react-native-leanplum/compare/v0.1.1...v0.1.2) (2018-09-26)
+
+
+### Bug Fixes
+
+* remove commitlint/config-lerna-scopes ([1319340](https://github.com/brandingbrand/react-native-leanplum/commit/1319340))
+
 ## [0.1.1](https://github.com/brandingbrand/react-native-leanplum/compare/v0.1.0...v0.1.1) (2018-07-02)
 
 
