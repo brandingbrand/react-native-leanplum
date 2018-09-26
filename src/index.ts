@@ -14,10 +14,10 @@ export default class RNLeanplum {
     LPBridge.start && LPBridge.start();
   }
   setAppIdDevelopmentKey(): void {
-    LPBridge.setAppIdDevelopmentKey(this.appId, this.key);
+    LPBridge.setAppIdDevelopmentKey && LPBridge.setAppIdDevelopmentKey(this.appId, this.key);
   }
   setAppIdProductionKey(): void {
-    LPBridge.setAppIdProductionKey(this.appId, this.key);
+    LPBridge.setAppIdProductionKey && LPBridge.setAppIdProductionKey(this.appId, this.key);
   }
   setDeviceId(deviceId: string): void {
     LPBridge.setDeviceId && LPBridge.setDeviceId(deviceId);
