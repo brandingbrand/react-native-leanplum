@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/brandingbrand/react-native-leanplum/compare/v1.0.0...v1.0.1) (2018-09-26)
+
+
+### Bug Fixes
+
+* check that setAppId is defined before attempting execution ([5bce770](https://github.com/brandingbrand/react-native-leanplum/commit/5bce770))
+
 # [1.0.0](https://github.com/brandingbrand/react-native-leanplum/compare/v0.1.2...v1.0.0) (2018-09-26)
 
 
