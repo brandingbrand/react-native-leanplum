@@ -126,14 +126,8 @@
 
     RCT_REMAP_METHOD(inboxMessages,
                      fetchInboxMessagesWithResolver:(RCTPromiseResolveBlock)resolve
-                     rejecter:(RCTPromiseRejectBlock)reject)
-    {
-        if ([[Leanplum inbox] allMessages]) {
-            resolve([[Leanplum inbox] inbox_messages]);
-        } else {
-            NSError *error;
-            reject(@"no_messages", @"There were no messages", error);
-        }
+                     rejecter:(RCTPromiseRejectBlock)reject) {
+        return resolve([[Leanplum inbox] inbox_messages]);
     }
 
 @end
