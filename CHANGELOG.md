@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/brandingbrand/react-native-leanplum/compare/v1.0.1...v2.0.0) (2018-10-03)
+
+
+### Features
+
+* refactor API to match Leanplum Android and iOS SDKs ([66459af](https://github.com/brandingbrand/react-native-leanplum/commit/66459af))
+
+
+### BREAKING CHANGES
+
+* All API methods have been replaced with a version that more closely matches the Android and iOS SDKs.
+
 ## [1.0.1](https://github.com/brandingbrand/react-native-leanplum/compare/v1.0.0...v1.0.1) (2018-09-26)
 
 
