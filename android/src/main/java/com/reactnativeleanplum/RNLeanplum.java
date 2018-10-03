@@ -1,135 +1,226 @@
 package com.reactnativeleanplum;
 
-import com.facebook.react.bridge.Arguments;
-import com.facebook.react.bridge.NativeModule;
+import android.app.Application;
+
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMapKeySetIterator;
+import com.facebook.react.bridge.ReadableType;
 
-
-import android.app.Application;
-
-import com.facebook.react.bridge.WritableArray;
-import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.bridge.WritableNativeArray;
-import com.facebook.react.bridge.WritableNativeMap;
-import com.leanplum.ActionContext;
+import com.leanplum.callbacks.StartCallback;
+import com.leanplum.callbacks.VariablesChangedCallback;
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
-import com.leanplum.LeanplumInbox;
-import com.leanplum.LeanplumInboxMessage;
-import com.leanplum.LeanplumPushService;
-import com.leanplum.NewsfeedMessage;
 
-import org.json.JSONObject;
-
-import java.lang.reflect.Field;
-import java.util.List;
+import java.util.HashMap;
 
 public class RNLeanplum extends ReactContextBaseJavaModule {
-
     private Application application;
 
     public RNLeanplum(ReactApplicationContext reactContext, Application app) {
         super(reactContext);
+
+        Leanplum.setApplicationContext(app);
+        LeanplumActivityHelper.enableLifecycleCallbacks(app);
+
         application = app;
     }
 
     @Override
     public String getName() {
-        return "RNLeanplum";
+        return "Leanplum";
     }
 
     @ReactMethod
-    public void setAppIdDevelopmentKey(String id, String key) {
-        Leanplum.setAppIdForDevelopmentMode(id,  key);
+    public void setApiConnectionSettings(String hostName, String servletName, boolean ssl) {
+        Leanplum.setApiConnectionSettings(hostName, servletName, ssl);
     }
 
     @ReactMethod
-    public void setAppIdProductionKey(String id, String key) {
-        Leanplum.setAppIdForProductionMode(id, key);
+    public void setNetworkTimeout(int seconds, int downloadSeconds) {
+        Leanplum.setNetworkTimeout(seconds, downloadSeconds);
+    }
+    
+    @ReactMethod
+    public void setCanDownloadContentMidSessionInProductionMode(boolean enabled) {
+        Leanplum.setCanDownloadContentMidSessionInProductionMode(enabled);
+    }
+    
+    @ReactMethod
+    public void setFileHashingEnabledInDevelopmentMode(boolean enabled) {
+        Leanplum.setFileHashingEnabledInDevelopmentMode(enabled);
+    }
+    
+    
+    @ReactMethod
+    public void setAppIdForDevelopmentMode(String appId, String accessKey) {
+        Leanplum.setAppIdForDevelopmentMode(appId, accessKey);
+    }
+    
+    @ReactMethod
+    public void setAppIdForProductionMode(String appId, String accessKey) {
+        Leanplum.setAppIdForProductionMode(appId, accessKey);
+    }
+    
+    @ReactMethod
+    public void setDeviceId(String deviceId) {
+        Leanplum.setDeviceId(deviceId);
+    }
+    
+    @ReactMethod
+    public void start(String userId, ReadableMap attributes, final Promise promise) {
+        Leanplum.start(application, userId, attributes.toHashMap(), new StartCallback() {
+            @Override
+            public void onResponse(boolean success) {
+                promise.resolve(success);
+            }
+        });
+    }
+    
+    @ReactMethod
+    public void hasStarted(Promise promise) {
+        promise.resolve(Leanplum.hasStarted());
     }
 
+    @ReactMethod
+    public void hasStartedAndRegisteredAsDeveloper(Promise promise) {
+        promise.resolve(Leanplum.hasStartedAndRegisteredAsDeveloper());
+    }
+    
+    @ReactMethod
+    public void onStartResponse(final Callback callback) {
+        Leanplum.addStartResponseHandler(new StartCallback() {
+            @Override
+            public void onResponse(boolean success) {
+                callback.invoke(success);
+            }
+        });
+    }
+    
+    @ReactMethod
+    public void onVariablesChanged(final Callback callback) {
+        Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
+            @Override
+            public void variablesChanged() {
+                callback.invoke();
+            } 
+        });
+    }
+    
+    @ReactMethod
+    public void onVariablesChangedAndNoDownloadsPending(final Callback callback) {
+        Leanplum.addVariablesChangedAndNoDownloadsPendingHandler(new VariablesChangedCallback() {
+            @Override
+            public void variablesChanged() {
+                callback.invoke();
+            } 
+        });
+    }
+    
+    @ReactMethod
+    public void onceVariablesChangedAndNoDownloadsPending(final Callback callback) {
+        Leanplum.addOnceVariablesChangedAndNoDownloadsPendingHandler(new VariablesChangedCallback() {
+            @Override
+            public void variablesChanged() {
+                callback.invoke();
+            } 
+        });
+    }
+    
     @ReactMethod
     public void setUserId(String userId) {
         Leanplum.setUserId(userId);
     }
-
+    
     @ReactMethod
-    public void readMessage(String messageId) {
-        LeanplumInbox inbox = Leanplum.getInbox();
+    public void setUserAttributes(String userId, ReadableMap attributes) {
+        Leanplum.setUserAttributes(userId, attributes.toHashMap());
+    }
+    
+    @ReactMethod
+    public void setTrafficSourceInfo(ReadableMap info) {
+        ReadableMapKeySetIterator iterator = info.keySetIterator();
+        HashMap<String, String> map = new HashMap<String, String>();
 
-        if (inbox != null) {
-            LeanplumInboxMessage message = inbox.messageForId(messageId);
-            if (message != null) {
-                message.read();
+        while (iterator.hasNextKey()) {
+            String key = iterator.nextKey();
+
+            if (info.getType(key) == ReadableType.String) {
+                map.put(key, info.getString(key));
             }
         }
-    }
 
+        Leanplum.setTrafficSourceInfo(map);
+    }
+    
     @ReactMethod
-    public void start() {
-        Leanplum.setApplicationContext(application);
-        LeanplumActivityHelper.enableLifecycleCallbacks(application);
-        LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
-        LeanplumInbox.disableImagePrefetching();
-        Leanplum.start(application);
+    public void advanceTo(String state, String info, ReadableMap params) {
+        Leanplum.advanceTo(state, info, params.toHashMap());
     }
-
+    
     @ReactMethod
-    public void inboxMessages(Promise promise) {
-        promise.resolve(generateJSONDictionary());
+    public void pauseState() {
+        Leanplum.pauseState();
+    }
+    
+    @ReactMethod
+    public void resumeState() {
+        Leanplum.resumeState();
+    }
+    
+    @ReactMethod
+    public void trackAllAppScreens() {
+        Leanplum.trackAllAppScreens();
+    }
+    
+    @ReactMethod
+    public void trackPurchase(String event, double value, String currencyCode, ReadableMap params) {
+        Leanplum.trackPurchase(event, value, currencyCode, params.toHashMap());
     }
 
-    // Convert android data value into json dictionary
-    public WritableArray generateJSONDictionary () {
-        LeanplumInbox inbox = Leanplum.getInbox();
-
-        WritableArray msgs = new WritableNativeArray();
-        List all = inbox.allMessages();
-        List<LeanplumInboxMessage> messages = (List<LeanplumInboxMessage>) all;
-
-
-        for (LeanplumInboxMessage message : messages) {
-            String dataString = null;
-
-            // super hacky: getting private property from a instance
-            // Android SDK 2.2.3 getData always returns null
-            try {
-                Field field = NewsfeedMessage.class.getDeclaredField("e");
-                field.setAccessible(true);
-                ActionContext context = (ActionContext) field.get(message);
-                dataString = context.stringNamed("Data");
-            } catch (NoSuchFieldException e) {} catch (IllegalAccessException e) {}
-
-            WritableMap messageData = new WritableNativeMap();
-            messageData.putString("messageId", message.getMessageId());
-            messageData.putString("title", message.getTitle());
-            messageData.putString("subtitle", message.getSubtitle());
-            messageData.putString("imageURL", message.getImageUrl() == null ? "" : String.valueOf(message.getImageUrl()));
-            messageData.putMap("data", converDataStringToMap(dataString));
-            messageData.putDouble("deliveryTimestamp", (message.getDeliveryTimestamp() == null) ? 0 : message.getDeliveryTimestamp().getTime());
-            messageData.putDouble("expirationTimestamp", (message.getExpirationTimestamp() == null) ? 0 : message.getExpirationTimestamp().getTime());
-            messageData.putBoolean("isRead", message.isRead());
-
-            msgs.pushMap(messageData);
-        }
-
-        return msgs;
+    
+    @ReactMethod
+    public void track(String event, double value, String info, ReadableMap params) {
+        Leanplum.track(event, value, info, params.toHashMap());
     }
-
-    static WritableMap converDataStringToMap(String dataString) {
-        if (dataString == null) {
-            return null;
-        }
-        WritableMap map = new WritableNativeMap();
-        String[] dataArr = dataString.replace("{", "").replace("}", "").split(", ");
-        for (int i = 0; i < dataArr.length; i++) {
-            String[] dataItem = dataArr[i].split("=");
-            map.putString(dataItem[0], dataItem[1]);
-        }
-        return map;
+    
+    @ReactMethod
+    public void variants(Promise promise) {
+        promise.resolve(Leanplum.variants());
+    }
+    
+    @ReactMethod
+    public void forceContentUpdate(final Callback callback) {
+        Leanplum.forceContentUpdate(new VariablesChangedCallback() {
+            @Override
+            public void variablesChanged() {
+                callback.invoke();
+            } 
+        });
+    }
+    
+    @ReactMethod
+    public void enableTestMode() {
+        Leanplum.enableTestMode();
+    }
+    
+    @ReactMethod
+    public void setTestModeEnabled(boolean isTestModeEnabled) {
+        Leanplum.setIsTestModeEnabled(isTestModeEnabled);
+    }
+    
+    @ReactMethod
+    public void deviceId(Promise promise) {
+        promise.resolve(Leanplum.getDeviceId());
+    }
+    
+    @ReactMethod
+    public void userId(Promise promise) {
+        promise.resolve(Leanplum.getUserId());
     }
 }
