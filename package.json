@@ -30,7 +30,8 @@
   },
   "scripts": {
     "prepublishOnly": "./node_modules/.bin/tsc",
-    "commitmsg": "commitlint -e $GIT_PARAMS"
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "test": "echo \"react-native-leanplum tests not yet implemented\""
   },
   "types": "./typings/index.d.ts",
   "version": "1.0.1",
