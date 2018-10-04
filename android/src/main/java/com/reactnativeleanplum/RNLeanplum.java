@@ -74,13 +74,7 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
     
     @ReactMethod
     public void start(String userId, ReadableMap attributes, final Promise promise) {
-        HashMap attributeMap = null;
-
-        if (attributes != null) {
-            attributeMap = attributes.toHashMap();
-        }
-
-        Leanplum.start(application, userId, attributeMap, new StartCallback() {
+        Leanplum.start(application, userId, attributes != null ? attributes.toHashMap() : null, new StartCallback() {
             @Override
             public void onResponse(boolean success) {
                 promise.resolve(success);
@@ -145,7 +139,7 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
     
     @ReactMethod
     public void setUserAttributes(String userId, ReadableMap attributes) {
-        Leanplum.setUserAttributes(userId, attributes.toHashMap());
+        Leanplum.setUserAttributes(userId, attributes != null ? attributes.toHashMap() : null);
     }
     
     @ReactMethod
@@ -166,7 +160,7 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
     
     @ReactMethod
     public void advanceTo(String state, String info, ReadableMap params) {
-        Leanplum.advanceTo(state, info, params.toHashMap());
+        Leanplum.advanceTo(state, info, params != null ? params.toHashMap() : null);
     }
     
     @ReactMethod
@@ -186,13 +180,13 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
     
     @ReactMethod
     public void trackPurchase(String event, double value, String currencyCode, ReadableMap params) {
-        Leanplum.trackPurchase(event, value, currencyCode, params.toHashMap());
+        Leanplum.trackPurchase(event, value, currencyCode, params != null ? params.toHashMap() : null);
     }
 
     
     @ReactMethod
     public void track(String event, double value, String info, ReadableMap params) {
-        Leanplum.track(event, value, info, params.toHashMap());
+        Leanplum.track(event, value, info, params != null ? params.toHashMap() : null);
     }
     
     @ReactMethod
