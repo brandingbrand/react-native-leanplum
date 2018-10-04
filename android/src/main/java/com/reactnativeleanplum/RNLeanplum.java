@@ -74,7 +74,13 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
     
     @ReactMethod
     public void start(String userId, ReadableMap attributes, final Promise promise) {
-        Leanplum.start(application, userId, attributes.toHashMap(), new StartCallback() {
+        HashMap attributeMap = null;
+
+        if (attributes != null) {
+            attributeMap = attributes.toHashMap();
+        }
+
+        Leanplum.start(application, userId, attributeMap, new StartCallback() {
             @Override
             public void onResponse(boolean success) {
                 promise.resolve(success);
