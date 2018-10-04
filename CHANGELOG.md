@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/brandingbrand/react-native-leanplum/compare/v2.0.0...v2.0.1) (2018-10-04)
+
+
+### Bug Fixes
+
+* check if user attributes is null in start ([98b7371](https://github.com/brandingbrand/react-native-leanplum/commit/98b7371))
+
 # [2.0.0](https://github.com/brandingbrand/react-native-leanplum/compare/v1.0.1...v2.0.0) (2018-10-03)
 
 

@@ -34,7 +34,7 @@
     "test": "echo \"react-native-leanplum tests not yet implemented\""
   },
   "types": "./typings/index.d.ts",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",
