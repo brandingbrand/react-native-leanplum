@@ -111,6 +111,10 @@ public class RNLPInbox extends ReactContextBaseJavaModule {
     private static WritableMap jsonToReact(JSONObject data) throws JSONException {
         WritableMap map = new WritableNativeMap();
 
+        if (data == null) {
+            return map;
+        }
+        
         Iterator iterator = data.keys();
 
         while(iterator.hasNext()) {
