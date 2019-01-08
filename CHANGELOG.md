@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/brandingbrand/react-native-leanplum/compare/v2.0.2...v2.0.3) (2019-01-08)
+
+
+### Bug Fixes
+
+* **android:** guard against null json value ([9e7f83d](https://github.com/brandingbrand/react-native-leanplum/commit/9e7f83d))
+
 ## [2.0.2](https://github.com/brandingbrand/react-native-leanplum/compare/v2.0.1...v2.0.2) (2018-10-04)
 
 
