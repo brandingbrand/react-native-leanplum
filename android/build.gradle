@@ -36,6 +36,6 @@ android {
 }
 
 dependencies {
-    compile "com.facebook.react:react-native:+"
-    compile 'com.leanplum:Leanplum:4.1.1'
+    implementation "com.facebook.react:react-native:+"
+    implementation 'com.leanplum:leanplum-fcm:4.2.3'
 }
