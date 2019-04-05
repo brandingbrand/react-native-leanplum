@@ -1,7 +1,7 @@
 {
   "author": "Branding Brand LLC",
   "bugs": {
-    "url": "https://github.com/brandingbrand/react-native-leanplum/issues"
+    "url": "https://github.com/gleephDamien/react-native-leanplum/issues"
   },
   "description": "React Native bridge for Leanplum iOS and Android SDKs.",
   "dependencies": {
@@ -17,16 +17,16 @@
     "semantic-release": "^15.6.0",
     "typescript": "^3.0.1"
   },
-  "homepage": "https://github.com/brandingbrand/react-native-leanplum#readme",
+  "homepage": "https://github.com/gleephDamien/react-native-leanplum#readme",
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@brandingbrand/react-native-leanplum",
+  "name": "@gleeph/react-native-leanplum",
   "peerDependencies": {
     "react-native": ">=0.40.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brandingbrand/react-native-leanplum.git"
+    "url": "git+https://github.com/gleephDamien/react-native-leanplum.git"
   },
   "scripts": {
     "prepublishOnly": "./node_modules/.bin/tsc",
