@@ -45,6 +45,7 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
             } else {
               Leanplum.setAppIdForProductionMode(application_id, prod_key);
             }
+            Leanplum.trackAllAppScreens();
             Leanplum.start(app);
         } catch(Exception e){
 
