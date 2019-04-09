@@ -15,24 +15,25 @@
 #else
 #import "Leanplum/Leanplum.h"
 #endif
-
+#import <React/RCTLog.h>
 static NSString * const kRNLeanplumDuplicateStartErrorCode = @"RNLeanplumDuplicateStart";
 static NSString * const kRNLeanplumDuplicateStartErrorReason = @"Leanplum: Already called start. Calling start a second time has no effect.";
 
 @implementation RNLeanplum
 RCT_EXPORT_MODULE(Leanplum);
 
-+ (BOOL)launch{
+- (RNLeanplum *)init {
 
-
-
+    self=[super init];
+    NSLog(@"fhiudjshic hdsi hfioudsiufhdkjs hfoi dsiojhfijdsfkj hdskjhfkjdskjfhdsjkhfkjdsh merde");
+    RCTLog(@"fhiudjshic hdsi hfioudsiufhdkjs hfoi dsiojhfijdsfkj hdskjhfkjdskjfhdsjkhfkjdsh merde");
 #ifdef DEBUG
     LEANPLUM_USE_ADVERTISING_ID;
-    [Leanplum setAppId:[[NSBundle mainBundle] objectForInfoDictionaryKey:LeanplumAppId]
-    withDevelopmentKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:LeanplumTestSecret]];
+    [Leanplum setAppId:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"LeanplumAppId"]
+    withDevelopmentKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"LeanplumTestSecret"]];
 #else
-    [Leanplum setAppId:[[NSBundle mainBundle] objectForInfoDictionaryKey:LeanplumAppId]
-     withProductionKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:LeanplumProdSecret]];
+    [Leanplum setAppId:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"LeanplumAppId"]
+     withProductionKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"LeanplumProdSecret"]];
 #endif
 
     // Optional: Tracks in-app purchases automatically as the "Purchase" event.
@@ -41,7 +42,7 @@ RCT_EXPORT_MODULE(Leanplum);
     // [Leanplum trackInAppPurchases];
 
     // Optional: Tracks all screens in your app as states in Leanplum.
-     [Leanplum trackAllAppScreens];
+    [Leanplum trackAllAppScreens];
 
     // Optional: Activates UI Editor.
     // Requires the Leanplum-iOS-UIEditor framework.
@@ -49,11 +50,11 @@ RCT_EXPORT_MODULE(Leanplum);
 
     // Sets the app version, which otherwise defaults to
     // the build number (CFBundleVersion).
-    [Leanplum setAppVersion:[[NSBundle mainBundle] objectForInfoDictionaryKey:CFBundleShortVersionString]];
+    [Leanplum setAppVersion:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
 
     // Starts a new session and updates the app content from Leanplum.
     [Leanplum start];
-    return YES;
+    return self;
 }
 RCT_REMAP_METHOD(setApiConnectionSettings,
                  setApiHostName:(NSString *)hostName withServletName:(NSString *)servletName usingSsl:(BOOL)ssl) {
@@ -86,12 +87,12 @@ RCT_EXPORT_METHOD(setInAppPurchaseEventName:(NSString *)event) {
 }
 
 RCT_REMAP_METHOD(setAppIdForDevelopmentMode,
-                setAppId:(NSString *)appId withDevelopmentKey:(NSString *)accessKey) {
+                 setAppId:(NSString *)appId withDevelopmentKey:(NSString *)accessKey) {
     [Leanplum setAppId:appId withDevelopmentKey:accessKey];
 }
 
 RCT_REMAP_METHOD(setAppIdForProductionMode,
-                setAppId:(NSString *)appId withProductionKey:(NSString *)accessKey) {
+                 setAppId:(NSString *)appId withProductionKey:(NSString *)accessKey) {
     [Leanplum setAppId:appId withProductionKey:accessKey];
 }
 
@@ -115,12 +116,12 @@ RCT_REMAP_METHOD(start,
 }
 
 RCT_REMAP_METHOD(hasStarted,
-                hasStartedWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+                 hasStartedWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     return resolve(@([Leanplum hasStarted]));
 }
 
 RCT_REMAP_METHOD(hasStartedAndRegisteredAsDeveloper,
-                hasStartedAndRegisteredAsDeveloperWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+                 hasStartedAndRegisteredAsDeveloperWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     return resolve(@([Leanplum hasStartedAndRegisteredAsDeveloper]));
 }
 
@@ -155,6 +156,9 @@ RCT_EXPORT_METHOD(onceVariablesChangedAndNoDownloadsPending:(RCTResponseSenderBl
 }
 
 RCT_EXPORT_METHOD(setUserId:(NSString *)userId) {
+
+    NSLog(@"setUserId merde");
+    RCTLog(@"setUserId merde");
     return [Leanplum setUserId:userId];
 }
 
