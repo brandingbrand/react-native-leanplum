@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"@brandingbrand/fsfoundation@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@brandingbrand/fsfoundation/-/fsfoundation-0.1.0.tgz#4fbd3a497d6c6c8f7488bc79ea5a5d79fd55f35f"
-
 "@commitlint/cli@^7.1.2":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-7.1.2.tgz#9ad1b4703679e18e3b1972c4abf0441255219e78"
