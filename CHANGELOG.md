@@ -1,3 +1,11 @@
+## [2.1.1](https://github.com/gleephDamien/react-native-leanplum/compare/v2.1.0...v2.1.1) (2019-04-10)
+
+
+### Bug Fixes
+
+* **ios:** erreur de dependences ([dc62f81](https://github.com/gleephDamien/react-native-leanplum/commit/dc62f81))
+* **ios:** erreur de dependences ([0a19b21](https://github.com/gleephDamien/react-native-leanplum/commit/0a19b21))
+
 ## [2.0.3](https://github.com/brandingbrand/react-native-leanplum/compare/v2.0.2...v2.0.3) (2019-01-08)
 
 
