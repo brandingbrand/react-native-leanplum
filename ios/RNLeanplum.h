@@ -16,4 +16,5 @@
 
 @interface RNLeanplum : NSObject <RCTBridgeModule>
 
++ (BOOL)launch;
 @end

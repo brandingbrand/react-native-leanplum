@@ -1,6 +1,9 @@
 package com.reactnativeleanplum;
 
 import android.app.Application;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import java.util.logging.Logger;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Promise;
@@ -21,14 +24,32 @@ import java.util.HashMap;
 
 public class RNLeanplum extends ReactContextBaseJavaModule {
     private Application application;
-
+    private String application_id;
+    private String dev_key;
+    private String prod_key;
     public RNLeanplum(ReactApplicationContext reactContext, Application app) {
         super(reactContext);
 
         Leanplum.setApplicationContext(app);
         LeanplumActivityHelper.enableLifecycleCallbacks(app);
-
         application = app;
+
+        application_id = getReactApplicationContext().getApplicationInfo().metaData.getString("com.reactnativeleanplum.APP_ID");
+        dev_key = getReactApplicationContext().getApplicationInfo().metaData.getString("com.reactnativeleanplum.DEV_KEY");
+        prod_key = getReactApplicationContext().getApplicationInfo().metaData.getString("com.reactnativeleanplum.PROD_KEY");
+
+        if (BuildConfig.DEBUG) {
+          Logger.getLogger("ReactNative").info("Leanplum launched in debug mode");
+
+          Leanplum.setAppIdForDevelopmentMode(application_id, dev_key);
+            Leanplum.enableVerboseLoggingInDevelopmentMode();
+            Leanplum.enableTestMode();
+        } else {
+          Logger.getLogger("ReactNative").info("Leanplum launched in release mode");
+          Leanplum.setAppIdForProductionMode(application_id, prod_key);
+        }
+        Leanplum.trackAllAppScreens();
+        Leanplum.start(app);
     }
 
     @Override
