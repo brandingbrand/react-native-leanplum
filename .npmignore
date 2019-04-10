@@ -107,3 +107,13 @@ Carthage/Build
 
 # CocoaPods
 Pods/
+src/
+typings/
+
+CODE_OF_CONDUCT.txt
+.travis.yml
+.commitlintrc.json
+README.md
+tsconfig.json
+CHANGELOG.md
+README.md
