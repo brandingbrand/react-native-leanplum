@@ -1,5 +1,5 @@
 import { NativeModules } from 'react-native';
-import { Dictionary } from '@brandingbrand/fsfoundation';
+import { Dictionary } from './Dictionary';
 import { LPInbox } from './LPInbox';
 
 export type LeanplumAttributes = Dictionary<boolean | number | string>;

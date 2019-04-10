@@ -4,9 +4,7 @@
     "url": "https://github.com/gleephDamien/react-native-leanplum/issues"
   },
   "description": "React Native bridge for Leanplum iOS and Android SDKs.",
-  "dependencies": {
-    "@brandingbrand/fsfoundation": "^0.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
     "@commitlint/config-conventional": "^7.1.2",
@@ -34,7 +32,7 @@
     "test": "echo \"react-native-leanplum tests not yet implemented\""
   },
   "types": "./typings/index.d.ts",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",

@@ -1,5 +1,5 @@
 import { NativeModules } from 'react-native';
-import { Dictionary } from '@brandingbrand/fsfoundation';
+import { Dictionary } from './Dictionary';
 
 export interface LPInboxMessageJSON {
   messageId: string;
