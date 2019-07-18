@@ -1,4 +1,6 @@
 {
+  "name": "@brandingbrand/react-native-leanplum",
+  "version": "3.0.0",
   "author": "Branding Brand LLC",
   "bugs": {
     "url": "https://github.com/brandingbrand/react-native-leanplum/issues"
@@ -20,7 +22,6 @@
   "homepage": "https://github.com/brandingbrand/react-native-leanplum#readme",
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@brandingbrand/react-native-leanplum",
   "peerDependencies": {
     "react-native": ">=0.40.0"
   },
@@ -34,7 +35,6 @@
     "test": "echo \"react-native-leanplum tests not yet implemented\""
   },
   "types": "./typings/index.d.ts",
-  "version": "2.0.3",
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",
