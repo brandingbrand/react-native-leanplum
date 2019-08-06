@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/brandingbrand/react-native-leanplum/compare/v3.0.0...v3.0.1) (2019-08-06)
+
+
+### Bug Fixes
+
+* update packages for security alerts ([61dd29d](https://github.com/brandingbrand/react-native-leanplum/commit/61dd29d))
+
 # [3.0.0](https://github.com/brandingbrand/react-native-leanplum/compare/v2.0.3...v3.0.0) (2019-07-18)
 
 
