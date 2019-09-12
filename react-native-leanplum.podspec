@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.source_files   = 'ios/*.{h,m}'
 
   s.dependency 'React'
-  s.dependency 'Leanplum-iOS-SDK'
+  s.dependency 'Leanplum-iOS-SDK', '2.5.0'
 end

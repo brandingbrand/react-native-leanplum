@@ -37,5 +37,9 @@ android {
 
 dependencies {
     compile "com.facebook.react:react-native:+"
-    compile 'com.leanplum:Leanplum:4.1.1'
+    compile 'com.leanplum:leanplum-fcm:5.2.3'
+    compile 'com.google.firebase:firebase-messaging:17.5.0'
+    
+    compile 'com.leanplum:leanplum-location:5.2.3'
+    compile "com.google.android.gms:play-services-location:17.0.0"
 }
