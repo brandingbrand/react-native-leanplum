@@ -20,15 +20,11 @@ import com.leanplum.LeanplumActivityHelper;
 import java.util.HashMap;
 
 public class RNLeanplum extends ReactContextBaseJavaModule {
-    private Application application;
-
     public RNLeanplum(ReactApplicationContext reactContext, Application app) {
         super(reactContext);
 
         Leanplum.setApplicationContext(app);
         LeanplumActivityHelper.enableLifecycleCallbacks(app);
-
-        application = app;
     }
 
     @Override
@@ -74,7 +70,7 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
     
     @ReactMethod
     public void start(String userId, ReadableMap attributes, final Promise promise) {
-        Leanplum.start(application, userId, attributes != null ? attributes.toHashMap() : null, new StartCallback() {
+        Leanplum.start(getCurrentActivity(), userId, attributes != null ? attributes.toHashMap() : null, new StartCallback() {
             @Override
             public void onResponse(boolean success) {
                 promise.resolve(success);
