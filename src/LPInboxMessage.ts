@@ -38,7 +38,7 @@ export class LPInboxMessage {
   /**
    * The data of the inbox message. Advanced use only.
    */
-  readonly data: LPInboxMessageJSON['data'];
+  readonly data?: LPInboxMessageJSON['data'];
 
   /**
    * The delivery timestamp of the inbox message.
