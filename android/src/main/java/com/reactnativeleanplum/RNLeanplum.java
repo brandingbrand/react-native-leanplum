@@ -1,30 +1,25 @@
 package com.reactnativeleanplum;
 
-import android.app.Application;
+import android.app.Activity;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
-
-import com.leanplum.callbacks.StartCallback;
-import com.leanplum.callbacks.VariablesChangedCallback;
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
+import com.leanplum.callbacks.StartCallback;
+import com.leanplum.callbacks.VariablesChangedCallback;
 
 import java.util.HashMap;
 
 public class RNLeanplum extends ReactContextBaseJavaModule {
-    public RNLeanplum(ReactApplicationContext reactContext, Application app) {
+    public RNLeanplum(ReactApplicationContext reactContext) {
         super(reactContext);
-
-        Leanplum.setApplicationContext(app);
-        LeanplumActivityHelper.enableLifecycleCallbacks(app);
     }
 
     @Override
@@ -70,7 +65,11 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
     
     @ReactMethod
     public void start(String userId, ReadableMap attributes, final Promise promise) {
-        Leanplum.start(getCurrentActivity(), userId, attributes != null ? attributes.toHashMap() : null, new StartCallback() {
+        Activity currentActivity = getCurrentActivity();
+
+        Leanplum.setApplicationContext(currentActivity.getApplicationContext());
+        LeanplumActivityHelper.enableLifecycleCallbacks(currentActivity.getApplication());
+        Leanplum.start(currentActivity, userId, attributes != null ? attributes.toHashMap() : null, new StartCallback() {
             @Override
             public void onResponse(boolean success) {
                 promise.resolve(success);
