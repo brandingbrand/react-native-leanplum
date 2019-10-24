@@ -1,3 +1,16 @@
+# [4.0.0](https://github.com/brandingbrand/react-native-leanplum/compare/v3.0.1...v4.0.0) (2019-10-24)
+
+
+### Bug Fixes
+
+* fix react native autolinking ([bff2ebc](https://github.com/brandingbrand/react-native-leanplum/commit/bff2ebc))
+
+
+### BREAKING CHANGES
+
+* React Native's autolinking feature calls the package constructor with no parameters. This removes
+the application dependency from the package/modules, so it should autolink correctly.
+
 ## [3.0.1](https://github.com/brandingbrand/react-native-leanplum/compare/v3.0.0...v3.0.1) (2019-08-06)
 
 
