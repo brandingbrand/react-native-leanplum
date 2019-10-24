@@ -1,7 +1,5 @@
 package com.reactnativeleanplum;
 
-import android.app.Application;
-
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -12,12 +10,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class RNLeanplumPackage implements ReactPackage {
-    private Application application;
-
-    public RNLeanplumPackage(Application app) {
-        application = app;
-    }
-
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Collections.emptyList();
@@ -27,9 +19,9 @@ public class RNLeanplumPackage implements ReactPackage {
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
 
-        modules.add(new RNLeanplum(reactContext, application));
-        modules.add(new RNLPInbox(reactContext, application));
-        modules.add(new RNLPInboxMessage(reactContext, application));
+        modules.add(new RNLeanplum(reactContext));
+        modules.add(new RNLPInbox(reactContext));
+        modules.add(new RNLPInboxMessage(reactContext));
 
         return modules;
     }

@@ -9,11 +9,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.WritableNativeMap;
 
-import android.app.Application;
-
-import com.leanplum.ActionContext;
 import com.leanplum.Leanplum;
-import com.leanplum.LeanplumInbox;
 import com.leanplum.LeanplumInboxMessage;
 
 import java.util.Iterator;
@@ -27,7 +23,7 @@ public class RNLPInbox extends ReactContextBaseJavaModule {
     private static final String E_MESSAGE_NOT_FOUND_ERROR = "RNLPInboxMessageNotFound";
     private static final String E_MESSAGE_NOT_FOUND_REASON = "Could not find a message with the given id.";
 
-    public RNLPInbox(ReactApplicationContext reactContext, Application app) {
+    public RNLPInbox(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
