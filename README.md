@@ -2,7 +2,14 @@
 
 [![npm version](https://badge.fury.io/js/%40brandingbrand%2Freact-native-leanplum.svg)](https://badge.fury.io/js/%40brandingbrand%2Freact-native-leanplum)
 
-> README is WiP
+# Supported React Native Versions
+
+This library was updated to support React Native autolinking in version 5.0; therefore it is not recommended to upgrade to version 5 unless you are running React Native 0.60 or above.
+
+|React Native|React Native Leanplum|
+|------------|---------------------|
+| 0.60.0+|5.0.0|
+| 0.40.0 - 0.59.x|4.0.0|
 
 # Install
 
