@@ -8,8 +8,8 @@ This library was updated to support React Native autolinking in version 5.0; the
 
 |React Native|React Native Leanplum|
 |------------|---------------------|
-| 0.60.0+|>= 5.0.0|
-| 0.40.0 - 0.59.x|<= 4.0.0|
+| 0.60.0+|>= 4.0.0|
+| 0.40.0 - 0.59.x|<= 3.0.0|
 
 # Install
 
