@@ -1,6 +1,6 @@
 {
   "name": "@brandingbrand/react-native-leanplum",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "author": "Branding Brand LLC",
   "bugs": {
     "url": "https://github.com/brandingbrand/react-native-leanplum/issues"
@@ -34,24 +34,5 @@
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "test": "echo \"react-native-leanplum tests not yet implemented\""
   },
-  "types": "./typings/index.d.ts",
-  "release": {
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "package.json",
-          "CHANGELOG.md"
-        ],
-        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }
-    ]
-  }
+  "types": "./typings/index.d.ts"
 }
