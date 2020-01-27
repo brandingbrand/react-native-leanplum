@@ -1,4 +1,4 @@
-import { NativeModules } from 'react-native';
+import { NativeModules, Platform } from 'react-native';
 import { Dictionary } from '@brandingbrand/fsfoundation';
 import { LPInbox } from './LPInbox';
 
@@ -204,6 +204,27 @@ export const Leanplum = {
   },
 
   /**
+   * If you do not want to send GPS/Cell location to Leanplum, then call 
+   * disableLocationCollection before start().
+   */
+  disableLocationCollection: () => {
+    return NativeModules.Leanplum.disableLocationCollection();
+  },
+
+  /**
+   * Our SDK allows you to set user location by calling setDeviceLocation with two arguments (see below)
+   * after calling start. You should call disableLocationCollection before setting the location.
+   * @param type will be omitted on iOS, on Android it should be CELL (default) or GPS.
+   */
+  setDeviceLocation: (latitude: number, longitude: number, type: string) => {
+    if (Platform.OS === 'android') {
+      return NativeModules.Leanplum.setDeviceLocation(latitude, longitude, type);
+    } else {
+      return NativeModules.Leanplum.setDeviceLocationWithLatitude(latitude, longitude);
+    }
+  },
+
+  /**
    * Sets the traffic source info for the current user.
    * Keys in info must be one of: publisherId, publisherName, publisherSubPublisher,
    * publisherSubSite, publisherSubCampaign, publisherSubAdGroup, publisherSubAd.
@@ -315,7 +336,7 @@ export const Leanplum = {
   /**
    * iOS Only.
    * Customize push setup. If this API should be called before [Leanplum start]. If this API is not
-   * used the default push setup from the docs will be used for "Push Ask to Ask" and 
+   * used the default push setup from the docs will be used for "Push Ask to Ask" and
    * "Register For Push".
    */
   setPushSetup: (callback: () => void): void => {
