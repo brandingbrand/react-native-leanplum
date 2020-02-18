@@ -1,5 +1,6 @@
 package com.reactnativeleanplum;
 
+import android.app.Activity;
 import android.location.Location;
 
 import com.facebook.react.bridge.Callback;
