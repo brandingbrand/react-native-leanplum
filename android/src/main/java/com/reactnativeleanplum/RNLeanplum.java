@@ -1,6 +1,5 @@
 package com.reactnativeleanplum;
 
-import android.app.Application;
 import android.location.Location;
 
 import com.facebook.react.bridge.Callback;
@@ -22,11 +21,12 @@ import com.leanplum.LeanplumLocationAccuracyType;
 import java.util.HashMap;
 
 public class RNLeanplum extends ReactContextBaseJavaModule {
-    public RNLeanplum(ReactApplicationContext reactContext, Application app) {
+    public RNLeanplum(ReactApplicationContext reactContext) {
         super(reactContext);
 
-        Leanplum.setApplicationContext(app);
-        LeanplumActivityHelper.enableLifecycleCallbacks(app);
+        Activity currentActivity = getCurrentActivity();
+        Leanplum.setApplicationContext(currentActivity.getApplicationContext());
+        LeanplumActivityHelper.enableLifecycleCallbacks(currentActivity.getApplication());
     }
 
     @Override
