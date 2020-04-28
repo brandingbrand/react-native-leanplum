@@ -131,6 +131,14 @@ RCT_REMAP_METHOD(setUserAttributes,
     return [Leanplum setUserId:userId withUserAttributes:attributes];
 }
 
+RCT_EXPORT_METHOD(disableLocationCollection) {
+    return [Leanplum disableLocationCollection];
+}
+
+RCT_EXPORT_METHOD(setDeviceLocationWithLatitude:(double)latitude longitude:(double)longitude) {
+    return [Leanplum setDeviceLocationWithLatitude:latitude longitude:longitude];
+}
+
 RCT_EXPORT_METHOD(setTrafficSourceInfo:(NSDictionary *)info) {
     return [Leanplum setTrafficSourceInfo:info];
 }
