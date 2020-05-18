@@ -67,8 +67,11 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
     public void start(String userId, ReadableMap attributes, final Promise promise) {
         Activity currentActivity = getCurrentActivity();
 
-        Leanplum.setApplicationContext(currentActivity.getApplicationContext());
-        LeanplumActivityHelper.enableLifecycleCallbacks(currentActivity.getApplication());
+        if (currentActivity != null) {
+            Leanplum.setApplicationContext(currentActivity.getApplicationContext());
+            LeanplumActivityHelper.enableLifecycleCallbacks(currentActivity.getApplication());
+        }
+        
         Leanplum.start(currentActivity, userId, attributes != null ? attributes.toHashMap() : null, new StartCallback() {
             @Override
             public void onResponse(boolean success) {
