@@ -18,6 +18,8 @@ import com.leanplum.callbacks.VariablesChangedCallback;
 import java.util.HashMap;
 
 public class RNLeanplum extends ReactContextBaseJavaModule {
+    private static final String E_ACTIVITY_DOES_NOT_EXIST = "E_ACTIVITY_DOES_NOT_EXIST";
+
     public RNLeanplum(ReactApplicationContext reactContext) {
         super(reactContext);
     }
@@ -66,6 +68,10 @@ public class RNLeanplum extends ReactContextBaseJavaModule {
     @ReactMethod
     public void start(String userId, ReadableMap attributes, final Promise promise) {
         Activity currentActivity = getCurrentActivity();
+
+        if (currentActivity == null) {
+            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist");
+        }
 
         Leanplum.setApplicationContext(currentActivity.getApplicationContext());
         LeanplumActivityHelper.enableLifecycleCallbacks(currentActivity.getApplication());
