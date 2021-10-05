@@ -1,3 +1,13 @@
+# [5.0.0](https://github.com/brandingbrand/react-native-leanplum/tree/v5.0.0) (2021-10-05)
+
+### chore
+
+Update dependencies to address security bulletins
+
+### BREAKING CHANGES
+
+Minimum Node version is now 12.
+
 # [4.0.0](https://github.com/brandingbrand/react-native-leanplum/compare/v3.0.1...v4.0.0) (2019-10-24)
 
 
