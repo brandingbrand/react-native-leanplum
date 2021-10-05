@@ -29,7 +29,7 @@
     "url": "git+https://github.com/brandingbrand/react-native-leanplum.git"
   },
   "scripts": {
-    "prepublishOnly": "./node_modules/.bin/tsc",
+    "prepare": "./node_modules/.bin/tsc",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "test": "echo \"react-native-leanplum tests not yet implemented\""
   },
