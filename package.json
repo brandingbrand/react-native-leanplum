@@ -1,6 +1,6 @@
 {
   "name": "@brandingbrand/react-native-leanplum",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "author": "Branding Brand LLC",
   "bugs": {
     "url": "https://github.com/brandingbrand/react-native-leanplum/issues"
@@ -10,14 +10,13 @@
     "@brandingbrand/fsfoundation": "^0.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@commitlint/travis-cli": "^8.3.5",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@types/react-native": "^0.46.7",
-    "semantic-release": "^17.0.7",
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@commitlint/travis-cli": "^13.2.0",
     "typescript": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   },
   "homepage": "https://github.com/brandingbrand/react-native-leanplum#readme",
   "license": "MIT",
@@ -36,6 +35,7 @@
   },
   "types": "./typings/index.d.ts",
   "resolutions": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "trim-newlines": "^3.0.1"
   }
 }
