@@ -1,3 +1,4 @@
+// @ts-ignore react-native is a peer dependency
 import { NativeModules } from 'react-native';
 import { LPInboxMessage, LPInboxMessageJSON } from './LPInboxMessage';
 
