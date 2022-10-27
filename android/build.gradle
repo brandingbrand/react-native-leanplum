@@ -2,11 +2,11 @@ apply plugin: 'com.android.library'
 
 buildscript {
     repositories {
+        google()
         mavenCentral()
-        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:4.2.0'
     }
 }
 
@@ -14,16 +14,17 @@ repositories {
     mavenCentral()
     maven { url "https://repo.leanplum.com/" }
     maven { url "$rootDir/node_modules/react-native/android" }
+    maven { url "$rootDir/node_modules/jsc-android/dist" }
     maven { url 'https://jitpack.io' }
 }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.1'
+    compileSdkVersion 31
+    buildToolsVersion '31.0.0'
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         ndk {
@@ -31,15 +32,14 @@ android {
         }
     }
     lintOptions {
-       warning 'InvalidPackage'
+        warning 'InvalidPackage'
     }
 }
-
 dependencies {
     compile "com.facebook.react:react-native:+"
     compile 'com.leanplum:leanplum-fcm:5.2.3'
     compile 'com.google.firebase:firebase-messaging:17.5.0'
-    
+
     compile 'com.leanplum:leanplum-location:5.2.3'
     compile "com.google.android.gms:play-services-location:17.0.0"
 }
